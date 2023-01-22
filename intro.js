@@ -2,7 +2,7 @@
     Andrew Ingram
     Learning about Javascript
 */
-
+/*
 //Variables are case sensitive
 var first = 0;
 var str = "Quote";
@@ -26,7 +26,7 @@ let purchase = true;
 
 /*if (purchase) {
   console.log("Thank you for your purchase!");
-} */
+} 
 
 g = 42;
 h = typeof g;
@@ -43,7 +43,7 @@ var fish = {
 fish.about(); //"Hi, my name is Melvin. I'm a M.Boesemani!"
 
 
-var rainbowFish = ["boeseman's", "Red", "Bleher's", "Lake Wanam"];
+/*var rainbowFish = ["boeseman's", "Red", "Bleher's", "Lake Wanam"];
 //rainbowFish[0] = "Neon";
 rainbowFish = rainbowFish.concat("Threadfin");
 var find = rainbowFish.find("Red");
@@ -51,5 +51,46 @@ var find = rainbowFish.find("Red");
 
 //rainbowFish.forEach();
 
-console.log(rainbowFish);
-console.log(fish.about())
+console.log(rainbowFish);*/
+
+/*var a = 1;
+
+while (a <= 10 ) {
+    console.log(a++)
+}
+
+var b=0;
+do {
+    console.log(b++);
+}while(b < 100)
+
+//console.log(fish.about())
+var name  = "Tiiimmaaayyy";
+sayHello(name);
+sayHello();
+function sayHello(name = "Bruce"){
+    name = name.toLowerCase();
+    console.log(`Hello, ${name}`);
+}
+console.log(name);
+scopeTest();
+
+function scopeTest(){
+    let x = 10;
+    {
+        let x = 20;
+        console.log(x);
+    }
+    console.log(x);
+}*/
+
+var x;
+
+x = multiplier(3,4);
+
+function multiplier(x, y){
+    let newNumber = x * y;
+    return newNumber;
+
+}
+console.log(x);
