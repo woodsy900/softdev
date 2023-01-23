@@ -7,27 +7,24 @@ window.addEventListener("load", (event) => {
     console.log("page is fully loaded");
   });
 //retrieve list of makes 
-
+function getCarMakes(){
 fetch(makeforType)
 .then((response) => response.json())
 .then(data => {
-    console.log(data)
-})
-
-//add to dropdown list
-function updateMakeList(){
-    getMakelist().then(function(data){
-        //get make name
-        for(element in data.message){
-        //append to list
-         let option = creatOption(element);
-         makeList.appendChild(option);
-         }
+    //create an empy array to store data
+    let carMakes = [];
+    //Loop through the data and push the makeName to the carMakes array
+    for (const element of data.Results) {
+        carMakes.push(element.MakeName);
+    }
+    let select = document.getElementById("car-makes");
+    //loop  through the car makes array and create an option element for each make
+    for (const element of carMakes) {
+        let option = document.createElement("option");
+            option.value = element;
+            option.text = element;
+            select.appendChild(option);
         }
-    );
-};
-function creatOption(text){
-    let option = document.createElement("option");
-    option.textContent = text;
-    return option;
-};
+    })
+    .catch(error => console.log(error));
+}
