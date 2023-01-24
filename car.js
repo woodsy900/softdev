@@ -15,6 +15,7 @@ fetch(makeforType)
     let carMakes = [];
     //Loop through the data and push the makeName to the carMakes array
     for (const element of data.Results) {
+        carMakes.sort();
         carMakes.push(element.MakeName);
     }
     let select = document.getElementById("car-makes");
@@ -28,3 +29,4 @@ fetch(makeforType)
     })
     .catch(error => console.log(error));
 }
+
