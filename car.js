@@ -15,9 +15,10 @@ fetch(makeforType)
     let carMakes = [];
     //Loop through the data and push the makeName to the carMakes array
     for (const element of data.Results) {
-        carMakes.sort();
+        
         carMakes.push(element.MakeName);
     }
+    carMakes.sort();
     let select = document.getElementById("car-makes");
     //loop  through the car makes array and create an option element for each make
     for (const element of carMakes) {
@@ -28,5 +29,15 @@ fetch(makeforType)
         }
     })
     .catch(error => console.log(error));
+}
+
+function selMake () {
+    const goBtn = document.querySelector('#gobtn');
+    const uSelect = document.querySelector('#uselect')
+    let Selmake = document.getElementById("car-makes");
+    let selectedText = Selmake.options[selMake.selectedIndex].value;
+    goBtn.onclick = () => {
+        uSelect.textContent = `You selected ${selectedText}`;
+    }
 }
 
