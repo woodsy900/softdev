@@ -25,16 +25,12 @@ fetch(makeforType)
         }
     })
     .catch(error => console.log(error));
+}
 
-document.querySelector("#gobtn").addEventListener("click",() => {
-    let selectedmake = carMakes.text;
-    alert(`${selectedmake}`)
-
-    
-})}
 function getOption() {
+    let uselect = document.querySelector("#uselect");
     selectElement = document.querySelector('#car-makes');
     output = selectElement.value;
     //document.querySelector('.output').textContent = output;
-    alert(`${output}`)
+    uselect.textContent = (`You selected ${output}`);
 }
