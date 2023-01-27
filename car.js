@@ -30,10 +30,11 @@ document.querySelector("#gobtn").addEventListener("click",() => {
     let selectedmake = carMakes.text;
     alert(`${selectedmake}`)
 
-    function getOption() {
-        selectElement = document.querySelector('#car-makes');
-        output = selectElement.value;
-        //document.querySelector('.output').textContent = output;
-        alert(`${output}`)
-    }
+    
 })}
+function getOption() {
+    selectElement = document.querySelector('#car-makes');
+    output = selectElement.value;
+    //document.querySelector('.output').textContent = output;
+    alert(`${output}`)
+}
