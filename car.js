@@ -32,12 +32,12 @@ function getOption() {
     selectElement = document.querySelector('#car-makes');
     output = selectElement.value;
     //document.querySelector('.output').textContent = output;
-    uselect.textContent = (`You selected ${output}`);
-}
-const baseUrl = "https://vpic.nhtsa.dot.gov/api/vehicles/getmodelsformake/"
-const endUrl = "?format=json"
-function getMakeModel () {
-    fetch(baseUrl+`${output}`+endUrl)
+    uselect.textContent = (`${output}`);
+    const baseUrl = "https://vpic.nhtsa.dot.gov/api/vehicles/getmodelsformake/";
+const makeSel = document.querySelector("#uselect").textContent;
+const endUrl = "?format=json";
+
+    fetch(baseUrl+makeSel+endUrl)
     .then((response) => response.json())
     .then(data => {
         let carModels = [];
