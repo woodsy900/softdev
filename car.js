@@ -25,35 +25,40 @@ fetch(makeforType)
         }
     })
     .catch(error => console.log(error));
+
 }
 
 function getOption() {
     let uselect = document.querySelector("#uselect");
     selectElement = document.querySelector('#car-makes');
-    output = selectElement.value;
-    //document.querySelector('.output').textContent = output;
-    uselect.textContent = (`${output}`);
+
+    }
+
+function getmodel(){ 
     const baseUrl = "https://vpic.nhtsa.dot.gov/api/vehicles/getmodelsformake/";
-const makeSel = document.querySelector("#uselect").textContent;
-const endUrl = "?format=json";
+    let makeSel = document.querySelector("#car-makes").value;
+    const endUrl = "?format=json";
 
     fetch(baseUrl+makeSel+endUrl)
     .then((response) => response.json())
     .then(data => {
         let carModels = [];
         for (const element of data.Results) {
-        
             carModels.push(element.Model_Name);
         }
         carModels.sort();
         let select = document.getElementById("car-models");
         //loop  through the car makes array and create an option element for each make
         for (const element of carModels) {
-            let option = document.createElement("option");
-                option.value = element;
-                option.text = element;
-                select.appendChild(option);
+            let moption = document.createElement("option");
+                moption.value = element;
+                moption.text = element;
+                select.appendChild(moption);
             }
         })
         .catch(error => console.log(error));
     }
+
+    output = selectElement.value;
+    //document.querySelector('.output').textContent = output;
+    uselect.textContent = (`${output}`);

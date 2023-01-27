@@ -11,14 +11,14 @@
     <div class="main">
         <h1>Select a make from the list</h1>
         <form>
-            <select id="car-makes">
+            <select onchange="getmodel()" id="car-makes">
             </select>
         </form>
         <form>
             <select id="car-models">
             </select>
         </form>
-        <button onclick="getOption()">Check</button>
+        <button onclick="getOption()">Search</button>
     </div>
     <div>
         <p>You have selected</p><p id="uselect"></p> 
