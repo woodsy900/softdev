@@ -1,11 +1,7 @@
 //variables
 
 const makeforType = "https://vpic.nhtsa.dot.gov/api/vehicles/GetMakesForVehicleType/car?format=json";
-const makeList = document.getElementById("make-list");
-//when page loads
-window.addEventListener("load", (event) => {
-    console.log("page is fully loaded");
-  });
+
 //retrieve list of makes 
 function getCarMakes(){
 fetch(makeforType)
@@ -29,15 +25,15 @@ fetch(makeforType)
         }
     })
     .catch(error => console.log(error));
-}
 
-function selMake () {
-    const goBtn = document.querySelector('#gobtn');
-    const uSelect = document.querySelector('#uselect')
-    let Selmake = document.getElementById("car-makes");
-    let selectedText = Selmake.options[selMake.selectedIndex].value;
-    goBtn.onclick = () => {
-        uSelect.textContent = `You selected ${selectedText}`;
+document.querySelector("#gobtn").addEventListener("click",() => {
+    let selectedmake = carMakes.text;
+    alert(`${selectedmake}`)
+
+    function getOption() {
+        selectElement = document.querySelector('#car-makes');
+        output = selectElement.value;
+        //document.querySelector('.output').textContent = output;
+        alert(`${output}`)
     }
-}
-
+})}
