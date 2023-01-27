@@ -34,3 +34,26 @@ function getOption() {
     //document.querySelector('.output').textContent = output;
     uselect.textContent = (`You selected ${output}`);
 }
+const baseUrl = "https://vpic.nhtsa.dot.gov/api/vehicles/getmodelsformake/"
+const endUrl = "?format=json"
+function getMakeModel () {
+    fetch(baseUrl+`${output}`+endUrl)
+    .then((response) => response.json())
+    .then(data => {
+        let carModels = [];
+        for (const element of data.Results) {
+        
+            carModels.push(element.Model_Name);
+        }
+        carModels.sort();
+        let select = document.getElementById("car-models");
+        //loop  through the car makes array and create an option element for each make
+        for (const element of carModels) {
+            let option = document.createElement("option");
+                option.value = element;
+                option.text = element;
+                select.appendChild(option);
+            }
+        })
+        .catch(error => console.log(error));
+    }
