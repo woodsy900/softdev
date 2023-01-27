@@ -47,6 +47,7 @@ function getmodel(){
             carModels.push(element.Model_Name);
         }
         carModels.sort();
+            document.getElementById("car-models").selectedIndex = "-1";
         let select = document.getElementById("car-models");
         //loop  through the car makes array and create an option element for each make
         for (const element of carModels) {
@@ -54,6 +55,7 @@ function getmodel(){
                 moption.value = element;
                 moption.text = element;
                 select.appendChild(moption);
+                
             }
         })
         .catch(error => console.log(error));
