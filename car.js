@@ -28,9 +28,16 @@ fetch(makeforType)
 
 }
 
+
+
+
 function getOption() {
     let uselect = document.querySelector("#uselect");
     selectElement = document.querySelector('#car-makes');
+
+    /*output = selectElement.value;
+    //document.querySelector('.output').textContent = output;
+    uselect.textContent = (`${output}`);*/
 
     }
 
@@ -46,21 +53,29 @@ function getmodel(){
         for (const element of data.Results) {
             carModels.push(element.Model_Name);
         }
-        carModels.sort();
-            document.getElementById("car-models").selectedIndex = "-1";
-        let select = document.getElementById("car-models");
-        //loop  through the car makes array and create an option element for each make
+        carModels.sort(); //sort the array
+        let select = document.getElementById("car-models"); //select the dropdown element by id
+
+        //loop  through the car model array and create an option element for each model
         for (const element of carModels) {
             let moption = document.createElement("option");
                 moption.value = element;
                 moption.text = element;
                 select.appendChild(moption);
-                
             }
+        
+            console.log(carModels.length)
         })
         .catch(error => console.log(error));
     }
 
-    output = selectElement.value;
-    //document.querySelector('.output').textContent = output;
-    uselect.textContent = (`${output}`);
+
+    //get model if model doesn't match blank list and load 
+
+
+/*const make1 = document.querySelector("car-makes".value);
+const make2 = "" ;
+const beverage = age >= 21 ? "Beer" : "Juice";
+console.log(beverage); // "Beer"*/
+
+
