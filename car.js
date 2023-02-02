@@ -28,27 +28,14 @@ fetch(makeforType)
 
 }
 
-
-
-
-function getOption() {
-    let uselect = document.querySelector("#uselect");
-    selectElement = document.querySelector('#car-makes');
-
-    /*output = selectElement.value;
-    //document.querySelector('.output').textContent = output;
-    uselect.textContent = (`${output}`);*/
-
-    }
-
 function getmodel(){ 
     const baseUrl = "https://vpic.nhtsa.dot.gov/api/vehicles/getmodelsformake/";
     let makeSel = document.querySelector("#car-makes").value;
     const endUrl = "?format=json";
-
     fetch(baseUrl+makeSel+endUrl)
     .then((response) => response.json())
     .then(data => {
+        document.getElementById("car-models").options.length = 0;
         let carModels = [];
         for (const element of data.Results) {
             carModels.push(element.Model_Name);
@@ -69,13 +56,15 @@ function getmodel(){
         .catch(error => console.log(error));
     }
 
-
-    //get model if model doesn't match blank list and load 
-
-
-/*const make1 = document.querySelector("car-makes".value);
-const make2 = "" ;
-const beverage = age >= 21 ? "Beer" : "Juice";
-console.log(beverage); // "Beer"*/
+    function getImage() {
+        let startStr = "https://keywordimage.com/image.php?q=";
+        let vehMake = document.querySelector("#car-makes").value;
+        let vehModel = document.querySelector("#car-models").value;
+        document.getElementById("carimg").src = startStr+vehMake+vehModel;
+        /*output = selectElement.value;
+        //document.querySelector('.output').textContent = output;
+        uselect.textContent = (`${output}`);*/
+        }
+   /* https://keywordimage.com/image.php?q=*/
 
 
